@@ -1,3 +1,6 @@
 logging:
   level:
     root: WARN
+management:
+  security:
+    enabled: false

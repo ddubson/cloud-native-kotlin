@@ -1,3 +1,4 @@
+
 buildscript {
     ext.springBootVersion = "1.5.6.RELEASE"
     ext.springCloudVersion = "Dalston.SR3"
@@ -11,6 +12,10 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
+}
+
+plugins {
+    id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
 
 repositories { mavenCentral() }
