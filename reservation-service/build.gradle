@@ -1,7 +1,7 @@
 buildscript {
     ext.springBootVersion = "1.5.6.RELEASE"
     ext.springCloudVersion = "Dalston.SR3"
-    ext.kotlinVersion = "1.1.4-2"
+    ext.kotlinVersion = "1.1.4-3"
 
     repositories { mavenCentral() }
 
