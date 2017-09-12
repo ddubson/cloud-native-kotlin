@@ -1,9 +1,12 @@
 package com.cloud.native
 
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.stereotype.Repository
+import org.springframework.data.repository.query.Param
+import org.springframework.data.rest.core.annotation.RepositoryRestResource
+import org.springframework.data.rest.core.annotation.RestResource
 
-@Repository
+@RepositoryRestResource
 interface ReservationRepository : JpaRepository<Reservation, Long> {
-    fun findByReservationName(rn: String): Collection<Reservation>
+    @RestResource(path = "by-name")
+    fun findByReservationName(@Param("rn") rn: String): Collection<Reservation>
 }
