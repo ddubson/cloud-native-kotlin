@@ -12,6 +12,8 @@ Reservation Service app
 
 ## Spring Boot Actuator
 
+Base Url for actuator endpoints are located at `/admin/`
+
 ### Git commit info of running instance
 
 Git commit information can be found at `/info`
