@@ -7,12 +7,17 @@ Kotlin-based version of Josh Long's 'Cloud Native Java' code
 Reservation Service app
 
 ```
-
 # Start Cloud Config server on port 8888
 ./gradlew :cloud-config:bootRun
 
+# Start Eureka Server on port 8761
+./gradlew :eureka-service:bootRun
+
 # Start Reservation service on port 8080
 ./gradlew :reservation-service:bootRun
+
+# Start Reservation client (Zuul proxy) on port 8081
+./gradlew :reservation-client:bootRun
 ```
 
 ## Spring Cloud Config

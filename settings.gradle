@@ -1,4 +1,6 @@
 rootProject.name = 'cloud-native-kotlin'
 
 include 'reservation-service'
+include 'reservation-client'
 include 'cloud-config'
+include 'eureka-service'

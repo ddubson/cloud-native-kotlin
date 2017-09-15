@@ -8,35 +8,22 @@ buildscript {
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
-}
-
-plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
 
 repositories { mavenCentral() }
 
 apply plugin: "kotlin"
 apply plugin: "kotlin-spring"
-apply plugin: "kotlin-jpa"
 apply plugin: "org.springframework.boot"
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-data-rest:$springBootVersion"
-    compile "org.springframework.data:spring-data-rest-webmvc:2.6.6.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
-    compile "org.springframework.cloud:spring-cloud-starter-config"
-    compile "org.springframework.cloud:spring-cloud-starter-eureka"
-    testCompile "org.springframework.boot:spring-boot-starter-test"
-
-    runtime "com.h2database:h2:1.4.196"
+    compile "org.springframework.boot:spring-boot-starter:$springBootVersion"
+    compile "org.springframework.cloud:spring-cloud-config-client"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka-server"
 }
 
 dependencyManagement {
