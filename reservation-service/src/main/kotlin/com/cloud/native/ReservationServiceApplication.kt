@@ -9,13 +9,11 @@ class ReservationServiceApplication(val reservationRepository: ReservationReposi
     : CommandLineRunner {
 
     override fun run(vararg args: String?) {
-        listOf("John", "Paul", "Jane", "Mark").forEach { name ->
-            reservationRepository.save(Reservation(0, name))
+        listOf("John", "Paul", "Jane", "Mark").forEach {
+            reservationRepository.save(Reservation(0, it))
         }
 
-        reservationRepository.findAll().forEach { reservation ->
-            println(reservation)
-        }
+        reservationRepository.findAll().forEach { println(it) }
     }
 }
 
