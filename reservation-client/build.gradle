@@ -1,5 +1,4 @@
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
     ext.springBootVersion = "1.5.7.RELEASE"
     ext.springCloudVersion = "Dalston.SR3"
     ext.kotlinVersion = "1.1.4-3"
@@ -11,7 +10,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -38,6 +36,7 @@ dependencies {
     //compile('org.springframework.cloud:spring-cloud-starter-zipkin')
     //compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
     compile('org.springframework.cloud:spring-cloud-starter-zuul')
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"

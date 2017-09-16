@@ -36,3 +36,11 @@ Base Url for actuator endpoints are located at `/admin/`
 ### Git commit info of running instance
 
 Git commit information can be found at `/admin/info`
+
+## API Gateway
+
+To view list of reservation names via API Gateway (that relays to the reservation service via reservation client):
+
+```
+GET /reservations/names
+```
