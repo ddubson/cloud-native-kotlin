@@ -2,21 +2,32 @@
 
 Kotlin-based version of Josh Long's 'Cloud Native Java' code
 
+## Pre-requisites
+
+- RabbitMQ installed and running.
+
 ## Running
 
-Reservation Service app
+Reservation Application Microservice ecosystem
 
 ```
-# (1) Start Cloud Config server on port 8888
+# (1) Start Cloud Config server
+# Port: 8888
 ./gradlew :cloud-config:bootRun
 
-# (2) Start Eureka Server on port 8761
+# (2) Start Eureka Server
+# Port: 8761
 ./gradlew :eureka-service:bootRun
 
-# (3) Start Reservation service on port 8080
+# (3) Start Hystrix Dashboard 
+# Port: 8889
+./gradlew :hystrix-dashboard:bootRun
+
+# (4) Start Reservation service 
+# Port: 8080
 ./gradlew :reservation-service:bootRun
 
-# (4) Start Reservation client (Zuul proxy, API Gateway, Circuit Breaker) 
+# (5) Start Reservation client (Zuul proxy, API Gateway, Circuit Breaker) 
 # Port: 8081
 ./gradlew :reservation-client:bootRun
 ```
@@ -48,3 +59,10 @@ GET /reservations/names
 
 This endpoint has a Circuit Breaker (Hystrix) which falls back to a method that provides
 an empty list in case of failure of execution of original method.
+
+## Hystrix Dashboard
+
+Navigate to `localhost:8889/hystrix` to find the Hystrix dashboard.
+
+To view Hystrix metrics for `reservation-client`, enter `http://localhost:8081/hystrix.stream` into the main panel
+
