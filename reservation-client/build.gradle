@@ -1,51 +1,18 @@
-buildscript {
-    ext.springBootVersion = "1.5.7.RELEASE"
-    ext.springCloudVersion = "Dalston.SR3"
-    ext.kotlinVersion = "1.1.4-3"
-
-    repositories { mavenCentral() }
-
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    }
-}
-
-plugins {
-    id "com.gorylenko.gradle-git-properties" version "1.4.17"
-}
-
-repositories { mavenCentral() }
-
-apply plugin: "kotlin"
-apply plugin: "kotlin-spring"
-apply plugin: "org.springframework.boot"
-
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-data-rest')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile "com.google.guava:guava:23.0"
 
-    compile('org.springframework.cloud:spring-cloud-starter-config')
-    compile('org.springframework.cloud:spring-cloud-starter-eureka')
-    //compile('org.springframework.cloud:spring-cloud-starter-feign')
-    compile('org.springframework.cloud:spring-cloud-starter-hystrix')
-    //compile('org.springframework.cloud:spring-cloud-starter-oauth2')
-    //compile('org.springframework.cloud:spring-cloud-starter-zipkin')
-    //compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
-    compile('org.springframework.cloud:spring-cloud-starter-zuul')
+    //compile("org.springframework.cloud:spring-cloud-starter-feign")
+    //compile("org.springframework.cloud:spring-cloud-starter-oauth2")
+    compile "org.springframework.cloud:spring-cloud-starter-config"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka"
+    compile "org.springframework.cloud:spring-cloud-starter-hystrix"
+    compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+    compile "org.springframework.cloud:spring-cloud-starter-stream-rabbit"
+    compile "org.springframework.cloud:spring-cloud-starter-zuul"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
-
-compileKotlin { kotlinOptions { jvmTarget = "1.8" } }
-compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }

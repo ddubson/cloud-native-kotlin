@@ -1,1 +1,5 @@
 server.port: 8081
+
+logging:
+  level:
+    root: WARN
