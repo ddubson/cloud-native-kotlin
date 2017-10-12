@@ -11,7 +11,7 @@ Kotlin-based version of Josh Long's 'Cloud Native Java' code
 Reservation Application Microservice ecosystem
 
 ```
-# (1) Start Cloud Config server
+# (1) Start Cloud Config server (wait until started)
 # Port: 8888
 ./gradlew :cloud-config:bootRun
 
@@ -23,11 +23,15 @@ Reservation Application Microservice ecosystem
 # Port: 8889
 ./gradlew :hystrix-dashboard:bootRun
 
-# (4) Start Reservation service 
+# (4) Start Zipkin Service (Distributed message tracing)
+# Port: 9411
+./gradlew :zipkin-service:bootRun
+
+# (5) Start Reservation service (microservice)
 # Port: 8080
 ./gradlew :reservation-service:bootRun
 
-# (5) Start Reservation client (Zuul proxy, API Gateway, Circuit Breaker) 
+# (6) Start Reservation client (Zuul proxy, API Gateway, Circuit Breaker) 
 # Port: 8081
 ./gradlew :reservation-client:bootRun
 ```
