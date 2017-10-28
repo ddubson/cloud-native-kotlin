@@ -1,1 +1,1 @@
-spring.application.name: cloud-config
+spring.application.name: config-service

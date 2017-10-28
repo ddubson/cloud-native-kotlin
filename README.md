@@ -64,6 +64,18 @@ GET /reservations/names
 This endpoint has a Circuit Breaker (Hystrix) which falls back to a method that provides
 an empty list in case of failure of execution of original method.
 
+## Zuul Proxy
+
+`reservation-client` is a Zuul proxy, which relays service requests to a configured REST API.
+
+To access `reservation-service` REST API endpoints, `reservation-client` has endpoints such as:
+
+```
+/reservation-service/reservations
+```
+
+Which calls Reservation service itself, acting as a proxy.
+
 ## Hystrix Dashboard
 
 Navigate to `localhost:8889/hystrix` to find the Hystrix dashboard.
