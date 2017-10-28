@@ -1,12 +1,9 @@
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.boot:spring-boot-starter-data-rest')
-    compile('org.springframework.boot:spring-boot-starter-web')
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-data-rest"
+    compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-integration"
     compile "com.google.guava:guava:23.0"
-
-    //compile("org.springframework.cloud:spring-cloud-starter-feign")
-    //compile("org.springframework.cloud:spring-cloud-starter-oauth2")
     compile "org.springframework.cloud:spring-cloud-starter-config"
     compile "org.springframework.cloud:spring-cloud-starter-eureka"
     compile "org.springframework.cloud:spring-cloud-starter-hystrix"
@@ -15,5 +12,5 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-zuul"
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }
