@@ -10,7 +10,7 @@ Kotlin-based version of Josh Long's 'Cloud Native Java' code
 
 Reservation Application Microservice ecosystem
 
-```
+```bash
 # (1) Start Cloud Config server (wait until started)
 # Port: 8888
 ./gradlew :cloud-config:bootRun
@@ -18,6 +18,10 @@ Reservation Application Microservice ecosystem
 # (2) Start Eureka Server
 # Port: 8761
 ./gradlew :eureka-service:bootRun
+
+# (3) Start Auth Service (OAuth2)
+# Port: 9191
+./gradlew :auth-service:bootRun
 
 # (3) Start Hystrix Dashboard 
 # Port: 8889
@@ -81,4 +85,22 @@ Which calls Reservation service itself, acting as a proxy.
 Navigate to `localhost:8889/hystrix` to find the Hystrix dashboard.
 
 To view Hystrix metrics for `reservation-client`, enter `http://localhost:8081/hystrix.stream` into the main panel
+
+## Authentication Service (OAuth2)
+
+To get an OAuth token:
+
+```
+POST localhost:9191/uaa/oauth/token
+Headers:
+- Accept: application/json
+- Authorization: Basic aHRtbDU6c2VjcmV0 (html5/secret)
+Body
+- password: test123
+- username: jdoe
+- grant_type: password
+- scope: openid
+- client_secret: secret
+- client_id: html5
+```
 
