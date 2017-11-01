@@ -1,5 +1,7 @@
 message.welcome: "Reservation Service Welcome!!"
 
+spring.cloud.stream.bindings.input.destination: reservations
+
 management:
   security:
     enabled: false

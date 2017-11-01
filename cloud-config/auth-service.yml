@@ -1,5 +1,4 @@
-security.sessions: "if_required"
-logging.level.org.springframework.security: "DEBUG"
+security.sessions: if_required
+logging.level.org.springframework.security: DEBUG
 server:
   port: 9191
-  contextpath: "/uaa"

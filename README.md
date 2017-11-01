@@ -59,14 +59,43 @@ Git commit information can be found at `/admin/info`
 
 ## API Gateway
 
+### Viewing
 To view list of reservation names via API Gateway (that relays to the reservation service via reservation client):
 
 ```
 GET /reservations/names
+HEADER:
+- Authorization: Bearer [bearer-token]
 ```
 
 This endpoint has a Circuit Breaker (Hystrix) which falls back to a method that provides
 an empty list in case of failure of execution of original method.
+
+### Creating 
+
+To add to the list of reservations, we can POST to our gateway and send the payload over the wire as 
+a message, via Spring Cloud Stream with RabbitMQ as the backing message queue.
+
+The reservation client has a property for binding output in `reservation-client.yml` in cloud config
+and has a Source binding in declaration.
+
+`spring.cloud.stream.bindings.output.destination: reservations`
+
+The reservation service has a property for binding input in `reservation-service.yml` in cloud config
+and has a Sink binding in declaration.
+
+`spring.cloud.stream.bindings.input.destination: reservations`
+
+The endpoint on the Reservation client side is:
+
+```
+POST /reservations
+HEADER:
+- Content-Type: application/json
+- Authorization: Bearer [bearer-token]
+
+{ "reservationName" : "content" }
+```
 
 ## Zuul Proxy
 
@@ -88,19 +117,30 @@ To view Hystrix metrics for `reservation-client`, enter `http://localhost:8081/h
 
 ## Authentication Service (OAuth2)
 
-To get an OAuth token:
+An in-memory implementation of `password` grant type.
+
+To get an OAuth token, call the Auth service:
 
 ```
-POST localhost:9191/uaa/oauth/token
+POST localhost:9191/oauth/token
 Headers:
 - Accept: application/json
-- Authorization: Basic aHRtbDU6c2VjcmV0 (html5/secret)
+- Authorization: Basic [base64(html5/password)]
 Body
 - password: test123
 - username: jdoe
 - grant_type: password
 - scope: openid
-- client_secret: secret
+- client_secret: password
 - client_id: html5
 ```
 
+Reservation client is protected by OAuth2, so to be able to access any resources, each request will
+need an Authorization Bearer header (with a bearer token retrieved from Auth service):
+
+```
+GET/reservations/names
+HEADER:
+- Authorization: Bearer [bearer-token]
+
+```

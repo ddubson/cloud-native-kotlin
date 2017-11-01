@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy
 import org.springframework.cloud.stream.annotation.EnableBinding
 import org.springframework.cloud.stream.messaging.Source
 import org.springframework.context.annotation.Bean
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer
 import org.springframework.web.client.RestTemplate
 
 @EnableBinding(Source::class)
@@ -18,6 +19,7 @@ import org.springframework.web.client.RestTemplate
 @EnableZuulProxy
 @EnableCircuitBreaker
 @EnableDiscoveryClient
+@EnableResourceServer
 class ReservationClientApplication {
     @Bean
     fun jsonMapper(): ObjectMapper = ObjectMapper().registerModule(KotlinModule())

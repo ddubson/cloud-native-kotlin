@@ -1,4 +1,6 @@
 server.port: 8081
+security.oauth2.resource.userInfoUri: http://localhost:9191/user
+spring.cloud.stream.bindings.output.destination: reservations
 
 logging:
   level:
