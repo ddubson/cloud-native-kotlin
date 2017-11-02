@@ -38,6 +38,10 @@ Reservation Application Microservice ecosystem
 # (6) Start Reservation client (Zuul proxy, API Gateway, Circuit Breaker) 
 # Port: 8081
 ./gradlew :reservation-client:bootRun
+
+# (7) Start DataFlow server (optional)
+# Port: 9393
+./gradlew :dataflow-service:bootRun
 ```
 
 ## Spring Cloud Config
@@ -104,14 +108,14 @@ HEADER:
 To access `reservation-service` REST API endpoints, `reservation-client` has endpoints such as:
 
 ```
-/reservation-service/reservations
+GET /reservation-service/reservations
 ```
 
 Which calls Reservation service itself, acting as a proxy.
 
 ## Hystrix Dashboard
 
-Navigate to `localhost:8889/hystrix` to find the Hystrix dashboard.
+Navigate to `http://localhost:8889/hystrix` to find the Hystrix dashboard.
 
 To view Hystrix metrics for `reservation-client`, enter `http://localhost:8081/hystrix.stream` into the main panel
 
@@ -139,8 +143,35 @@ Reservation client is protected by OAuth2, so to be able to access any resources
 need an Authorization Bearer header (with a bearer token retrieved from Auth service):
 
 ```
-GET/reservations/names
+GET localhost:8081/reservations/names
 HEADER:
 - Authorization: Bearer [bearer-token]
+```
+
+## Spring Cloud DataFlow
+
+`dataflow-service` is a Spring Boot app that loads the local DataFlow server. It is bound on port `9393`
+
+To interact with the dataflow server, you can download the dataflow shell provided by Spring.
+
+### Using the shell
+
+Run the shell via:
 
 ```
+java -jar spring-cloud-dataflow-shell-[version].RELEASE.jar
+
+# Import apps
+app import --uri http://bit.ly/stream-applications-rabbit-maven
+
+# list apps available - (soures, processors, sinks, tasks)
+app list
+
+# Create a stream that reads from a file directory and writes to reservation-service
+stream create --name files-to-reservations --definition " file --file.consumer.mode=lines --file.directory
+=/path/to/directory > :reservations " --deploy
+```
+
+This will create a File directory source and hook up to the reservation service sink already configured,
+on 'reservations' RabbitMQ queue.
+
