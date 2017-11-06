@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ddubson/cloud-native-kotlin.svg?branch=master)](https://travis-ci.org/ddubson/cloud-native-kotlin)
+
 # Cloud Native Kotlin
 
 Kotlin-based version of Josh Long's 'Cloud Native Java' code
