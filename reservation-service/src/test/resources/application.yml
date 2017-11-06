@@ -1,0 +1,21 @@
+spring:
+  main:
+    banner-mode: "off"
+  cloud:
+    config:
+      discovery:
+        enabled: false
+  zipkin:
+    enabled: false
+logging:
+  level:
+    org.springframework: ERROR
+    org.hibernate: ERROR
+
+message.welcome: "Hello Test!"
+eureka:
+  client:
+    enabled: false
+hystrix:
+  metrics:
+    enabled: false
