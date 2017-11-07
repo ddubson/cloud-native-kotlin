@@ -14,4 +14,5 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.springframework.cloud:spring-cloud-contract-wiremock"
 }
