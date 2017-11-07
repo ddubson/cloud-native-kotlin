@@ -1,0 +1,68 @@
+{
+  "_embedded": {
+    "reservations": [
+      {
+        "reservationName": "John",
+        "_links": {
+          "self": {
+            "href": "http://localhost:9999/reservations/1"
+          },
+          "reservation": {
+            "href": "http://localhost:9999/reservations/1"
+          }
+        }
+      },
+      {
+        "reservationName": "Paul",
+        "_links": {
+          "self": {
+            "href": "http://localhost:9999/reservations/2"
+          },
+          "reservation": {
+            "href": "http://localhost:9999/reservations/2"
+          }
+        }
+      },
+      {
+        "reservationName": "Jane",
+        "_links": {
+          "self": {
+            "href": "http://localhost:9999/reservations/3"
+          },
+          "reservation": {
+            "href": "http://localhost:9999/reservations/3"
+          }
+        }
+      },
+      {
+        "reservationName": "Mark",
+        "_links": {
+          "self": {
+            "href": "http://localhost:9999/reservations/4"
+          },
+          "reservation": {
+            "href": "http://localhost:9999/reservations/4"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:9999/reservations{?page,size,sort}",
+      "templated": true
+    },
+    "profile": {
+      "href": "http://localhost:9999/profile/reservations"
+    },
+    "search": {
+      "href": "http://localhost:9999/reservations/search"
+    }
+  },
+  "page": {
+    "size": 20,
+    "totalElements": 4,
+    "totalPages": 1,
+    "number": 0
+  }
+}

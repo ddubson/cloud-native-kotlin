@@ -1,3 +1,5 @@
 spring:
   application.name: reservation-client
   cloud.config.uri: http://localhost:8888
+
+service.reservation: http://reservation-service
