@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.hateoas.Resources
 import org.springframework.http.HttpMethod.GET
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 
@@ -15,7 +14,14 @@ class ReservationClient(val restTemplate: RestTemplate,
 
     @HystrixCommand(fallbackMethod = "fallback")
     fun getReservationNames(): List<String> {
-        val result: ResponseEntity<Resources<Reservation>> = this.restTemplate
+        //val traverson = Traverson(URI("$reservationServiceUrl/reservations"), MediaTypes.HAL_JSON)
+        //val tBuilder = this.restTemplate.follow("users")
+/*        ParameterizedTypeReference<Resources<UserJson>> typeRefDevices = new ParameterizedTypeReference<Resources<UserJson>>() {};
+Resources<UserJson> resUsers = tb.toObject(typeRefDevices);
+Collection<UserJson> users= resUsers .getContent();*/
+
+
+        val result = this.restTemplate
                 .exchange(
                         "$reservationServiceUrl/reservations",
                         GET,
