@@ -46,9 +46,10 @@ internal class ReservationClientRestServiceServerTest {
         val reservationNames = reservationClient.getReservationNames()
 
         mockServer.verify()
-        then(reservationNames.size).isEqualTo(3)
-        then(reservationNames[0]).isEqualTo("James")
-        then(reservationNames[1]).isEqualTo("Jane")
-        then(reservationNames[2]).isEqualTo("Jimmy")
+        then(reservationNames.size).isEqualTo(4)
+        then(reservationNames[0]).isEqualTo("John")
+        then(reservationNames[1]).isEqualTo("Paul")
+        then(reservationNames[2]).isEqualTo("Jane")
+        then(reservationNames[3]).isEqualTo("Mark")
     }
 }

@@ -11,7 +11,6 @@ import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock
 import org.springframework.core.io.ClassPathResource
 import org.springframework.core.io.Resource
 import org.springframework.test.context.junit4.SpringRunner
-import org.springframework.web.client.RestTemplate
 import java.io.BufferedReader
 
 @SpringBootTest(classes = arrayOf(TestConfig::class))
@@ -20,9 +19,6 @@ import java.io.BufferedReader
 internal class ReservationClientWireMockTest {
     @Autowired
     lateinit var reservationClient: ReservationClient
-
-    @Autowired
-    lateinit var restTemplate: RestTemplate
 
     private val reservations: Resource = ClassPathResource("service-response.json")
 
@@ -34,12 +30,11 @@ internal class ReservationClientWireMockTest {
                         .withBody(asJson(reservations))))
         val reservationNames = reservationClient.getReservationNames()
 
-        //Mockito.verify(restTemplate).exchange("http://localhost:9999/reservations", GET, null,
-         //       object: ParameterizedTypeReference<Resources<Reservation>>(){})
-        then(reservationNames.size).isEqualTo(3)
-        then(reservationNames[0]).isEqualTo("James")
-        then(reservationNames[1]).isEqualTo("Jane")
-        then(reservationNames[2]).isEqualTo("Jimmy")
+        then(reservationNames.size).isEqualTo(4)
+        then(reservationNames[0]).isEqualTo("John")
+        then(reservationNames[1]).isEqualTo("Paul")
+        then(reservationNames[2]).isEqualTo("Jane")
+        then(reservationNames[3]).isEqualTo("Mark")
     }
 
     private fun asJson(res: Resource): String =
