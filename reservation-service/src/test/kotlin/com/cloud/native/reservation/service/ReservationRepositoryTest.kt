@@ -1,4 +1,4 @@
-package com.cloud.native
+package com.cloud.native.reservation.service
 
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.Test

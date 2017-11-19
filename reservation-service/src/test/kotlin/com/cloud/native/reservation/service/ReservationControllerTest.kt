@@ -1,4 +1,4 @@
-package com.cloud.native
+package com.cloud.native.reservation.service
 
 import org.junit.Test
 import org.junit.runner.RunWith

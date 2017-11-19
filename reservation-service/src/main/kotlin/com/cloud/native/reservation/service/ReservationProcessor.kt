@@ -1,4 +1,4 @@
-package com.cloud.native
+package com.cloud.native.reservation.service
 
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.stream.annotation.StreamListener

@@ -1,8 +1,10 @@
 buildscript {
     ext.springBootVersion = "1.5.8.RELEASE"
     ext.springCloudVersion = "Dalston.SR4"
-    ext.kotlinVersion = "1.1.60"
+    ext.kotlinVersion = "1.1.61"
     ext.h2Version = "1.4.196"
+    ext.springCloudContractVersion = "1.2.1.RELEASE"
+    ext.restAssuredVersion = "3.0.6"
 
     repositories { mavenCentral() }
 
@@ -11,6 +13,9 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
+        classpath "io.rest-assured:rest-assured:$restAssuredVersion"
+        classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
     }
 }
 
@@ -20,6 +25,9 @@ plugins {
 
 allprojects {
     repositories { mavenCentral() }
+
+    group = "com.cloud.native"
+    version = "1.0.0"
 
     apply plugin: "kotlin"
     apply plugin: "kotlin-spring"
@@ -34,6 +42,7 @@ allprojects {
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${springCloudContractVersion}"
         }
     }
 

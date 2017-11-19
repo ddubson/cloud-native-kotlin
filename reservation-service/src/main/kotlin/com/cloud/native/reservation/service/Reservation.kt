@@ -1,4 +1,4 @@
-package com.cloud.native
+package com.cloud.native.reservation.service
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
