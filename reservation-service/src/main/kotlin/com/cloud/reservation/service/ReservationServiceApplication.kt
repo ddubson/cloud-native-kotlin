@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.service
+package com.cloud.reservation.service
 
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication

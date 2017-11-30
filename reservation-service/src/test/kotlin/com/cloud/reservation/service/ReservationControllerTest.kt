@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.service
+package com.cloud.reservation.service
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
-@SpringBootTest(classes = arrayOf(ReservationServiceApplication::class))
+@SpringBootTest(classes = [ReservationServiceApplication::class])
 @RunWith(SpringRunner::class)
 @AutoConfigureMockMvc
 class ReservationControllerTest {

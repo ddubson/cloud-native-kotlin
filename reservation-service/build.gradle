@@ -1,11 +1,11 @@
-
-
+apply plugin: 'java'
 apply plugin: "spring-cloud-contract"
 
 contracts {
     targetFramework = 'JUNIT'
-    basePackageForTests = "com.contract"
-    packageWithBaseClasses = "com.contract"
+    testMode = 'MOCKMVC'
+    basePackageForTests = "com.cloud.reservation.service.contract"
+    baseClassForTests = "com.cloud.reservation.service.contract.ReservationControllerBase"
 }
 
 dependencies {
@@ -24,6 +24,14 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "io.rest-assured:rest-assured:$restAssuredVersion"
     testCompile "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
+    testCompile "com.jayway.jsonpath:json-path:2.4.0"
 
     runtime "com.h2database:h2:1.4.196"
+}
+
+sourceSets {
+    main {
+        java { srcDirs = ['src/kotlin'] }
+        resources { srcDirs = ['src/resources'] }
+    }
 }

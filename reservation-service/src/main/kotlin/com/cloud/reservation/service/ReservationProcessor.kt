@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.service
+package com.cloud.reservation.service
 
 import org.slf4j.LoggerFactory
 import org.springframework.cloud.stream.annotation.StreamListener
@@ -11,6 +11,6 @@ class ReservationProcessor(val reservationRepository: ReservationRepository) {
     @StreamListener("input")
     fun acceptNewReservations(reservationName: String) {
         log.info("Received message :: $reservationName")
-        this.reservationRepository.save(Reservation(0,reservationName))
+        this.reservationRepository.save(Reservation(0, reservationName))
     }
 }

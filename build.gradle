@@ -1,7 +1,7 @@
 buildscript {
     ext.springBootVersion = "1.5.8.RELEASE"
     ext.springCloudVersion = "Dalston.SR4"
-    ext.kotlinVersion = "1.1.61"
+    ext.kotlinVersion = "1.2.0"
     ext.h2Version = "1.4.196"
     ext.springCloudContractVersion = "1.2.1.RELEASE"
     ext.restAssuredVersion = "3.0.6"
@@ -16,6 +16,7 @@ buildscript {
         classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
+        classpath "com.jayway.jsonpath:json-path:2.4.0"
     }
 }
 
