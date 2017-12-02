@@ -1,11 +1,4 @@
 buildscript {
-    ext.springBootVersion = "1.5.8.RELEASE"
-    ext.springCloudVersion = "Dalston.SR4"
-    ext.kotlinVersion = "1.2.0"
-    ext.h2Version = "1.4.196"
-    ext.springCloudContractVersion = "1.2.1.RELEASE"
-    ext.restAssuredVersion = "3.0.6"
-
     repositories { mavenCentral() }
 
     dependencies {
@@ -27,7 +20,7 @@ plugins {
 allprojects {
     repositories { mavenCentral() }
 
-    group = "com.cloud.native"
+    group = "com.cloud"
     version = "1.0.0"
 
     apply plugin: "kotlin"
