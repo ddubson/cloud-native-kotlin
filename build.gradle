@@ -9,7 +9,6 @@ buildscript {
         classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
-        classpath "com.jayway.jsonpath:json-path:2.4.0"
     }
 }
 

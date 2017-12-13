@@ -13,22 +13,13 @@ Contract.make {
         headers {
             contentType("application/hal+json;charset=UTF-8")
         }
-        body("""
-        {
+        body("""{
             "_embedded": {
                 "reservations": [
-                        {
-                            "reservationName": "John"
-                        },
-                        {
-                            "reservationName": "Paul"
-                        },
-                        {
-                            "reservationName": "Jane"
-                        },
-                        {
-                            "reservationName": "Mark"
-                        }
+                        { "reservationName": "John" },
+                        { "reservationName": "Paul" },
+                        { "reservationName": "Jane" },
+                        { "reservationName": "Mark" }
                 ]
             }
         }""")
