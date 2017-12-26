@@ -9,10 +9,10 @@ import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRun
 import org.springframework.cloud.contract.verifier.messaging.noop.NoOpContractVerifierAutoConfiguration
 import org.springframework.test.context.junit4.SpringRunner
 
-
-@SpringBootTest(classes = [TestConfig::class, NoOpContractVerifierAutoConfiguration::class])
+@SpringBootTest(properties = ["service.reservation=http://localhost:9998"],
+        classes = [TestConfig::class, NoOpContractVerifierAutoConfiguration::class])
 @RunWith(SpringRunner::class)
-@AutoConfigureStubRunner(ids = ["com.cloud:reservation-service:+:stubs:9999"], workOffline = true)
+@AutoConfigureStubRunner(ids = ["com.cloud:reservation-service:+:stubs:9998"], workOffline = true)
 internal class ReservationClientWireMockCloudContractTest {
     @Autowired
     lateinit var reservationClient: ReservationClient
@@ -27,5 +27,4 @@ internal class ReservationClientWireMockCloudContractTest {
         BDDAssertions.then(reservationNames[2]).isEqualTo("Jane")
         BDDAssertions.then(reservationNames[3]).isEqualTo("Mark")
     }
-
 }

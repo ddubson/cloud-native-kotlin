@@ -13,7 +13,7 @@ import org.springframework.core.io.Resource
 import org.springframework.test.context.junit4.SpringRunner
 import java.io.BufferedReader
 
-@SpringBootTest(classes = [(TestConfig::class)])
+@SpringBootTest(classes = [TestConfig::class])
 @RunWith(SpringRunner::class)
 @AutoConfigureWireMock(port = 9999)
 internal class ReservationClientWireManualMockTest {

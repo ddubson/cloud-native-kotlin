@@ -20,7 +20,7 @@ class TestConfig {
 
     @Bean
     fun getRestTemplateWithHalMessageConverter(): RestTemplate {
-        val restTemplate = RestTemplate()
+        val restTemplate = RestTemplate();
         val existingConverters: List<HttpMessageConverter<*>> = restTemplate.messageConverters
         val newConverters = mutableListOf<HttpMessageConverter<*>>()
         newConverters.add(getHalMessageConverter())
