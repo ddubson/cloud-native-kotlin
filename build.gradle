@@ -1,5 +1,8 @@
 buildscript {
-    repositories { mavenCentral() }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
@@ -9,6 +12,7 @@ buildscript {
         classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
     }
 }
 

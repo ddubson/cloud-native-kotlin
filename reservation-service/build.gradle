@@ -1,5 +1,6 @@
-apply plugin: 'java'
+apply plugin: "java"
 apply plugin: "spring-cloud-contract"
+apply plugin: "org.asciidoctor.convert"
 
 contracts {
     targetFramework = 'JUNIT'
@@ -25,8 +26,17 @@ dependencies {
     testCompile "io.rest-assured:rest-assured:$restAssuredVersion"
     testCompile "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
     testCompile "com.jayway.jsonpath:json-path:2.4.0"
+    testCompile "org.springframework.restdocs:spring-restdocs-mockmvc"
 
     runtime "com.h2database:h2:1.4.196"
+}
+
+asciidoctor {
+    sourceDir = file('build/snippets/')
+    options doctype: 'book'
+    backends 'html'
+    attributes snippets: 'build/snippets'
+    outputDir = file('build/generated-docs')
 }
 
 sourceSets {
