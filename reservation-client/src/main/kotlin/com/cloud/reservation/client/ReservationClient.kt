@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand
 import org.springframework.beans.factory.annotation.Value

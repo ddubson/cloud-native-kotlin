@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import com.github.tomakehurst.wiremock.client.WireMock.*
 import org.apache.http.HttpHeaders
@@ -13,10 +13,10 @@ import org.springframework.core.io.Resource
 import org.springframework.test.context.junit4.SpringRunner
 import java.io.BufferedReader
 
-@SpringBootTest(classes = arrayOf(TestConfig::class))
+@SpringBootTest(classes = [(TestConfig::class)])
 @RunWith(SpringRunner::class)
 @AutoConfigureWireMock(port = 9999)
-internal class ReservationClientWireMockTest {
+internal class ReservationClientWireManualMockTest {
     @Autowired
     lateinit var reservationClient: ReservationClient
 

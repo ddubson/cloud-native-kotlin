@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
@@ -20,7 +20,7 @@ class TestConfig {
 
     @Bean
     fun getRestTemplateWithHalMessageConverter(): RestTemplate {
-        val restTemplate = RestTemplate();
+        val restTemplate = RestTemplate()
         val existingConverters: List<HttpMessageConverter<*>> = restTemplate.messageConverters
         val newConverters = mutableListOf<HttpMessageConverter<*>>()
         newConverters.add(getHalMessageConverter())

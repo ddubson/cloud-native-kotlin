@@ -14,5 +14,8 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
+
+    // Spring Cloud Contract related dependencies
+    testCompile "org.springframework.cloud:spring-cloud-starter-contract-stub-runner"
     testCompile "org.springframework.cloud:spring-cloud-contract-wiremock"
 }

@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import org.springframework.hateoas.ResourceSupport
 

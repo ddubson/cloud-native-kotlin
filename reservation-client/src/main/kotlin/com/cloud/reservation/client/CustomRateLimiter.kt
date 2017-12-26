@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import com.google.common.util.concurrent.RateLimiter
 import com.netflix.zuul.ZuulFilter

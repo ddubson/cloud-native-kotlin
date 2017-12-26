@@ -1,4 +1,4 @@
-package com.cloud.native.reservation.client
+package com.cloud.reservation.client
 
 import org.assertj.core.api.BDDAssertions.then
 import org.junit.Before
@@ -18,7 +18,7 @@ import org.springframework.test.web.client.match.MockRestRequestMatchers.request
 import org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess
 import org.springframework.web.client.RestTemplate
 
-@SpringBootTest(classes = arrayOf(TestConfig::class))
+@SpringBootTest(classes = [(TestConfig::class)])
 @RunWith(SpringRunner::class)
 internal class ReservationClientRestServiceServerTest {
     private val serviceResponse: Resource = ClassPathResource("service-response.json")
