@@ -14,7 +14,5 @@ class CustomHealthIndicator : HealthIndicator {
         this.health = Health.status("Struggling.").build()
     }
 
-    override fun health(): Health {
-        return Health.status("Whoo!").build()
-    }
+    override fun health(): Health = Health.status("Whoo!").build()
 }

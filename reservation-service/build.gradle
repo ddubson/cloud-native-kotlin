@@ -41,7 +41,6 @@ asciidoctor {
 
 sourceSets {
     main {
-        java { srcDirs = ['src/kotlin'] }
-        resources { srcDirs = ['src/resources'] }
+        java { srcDirs = ['src/main/kotlin'] }
     }
 }

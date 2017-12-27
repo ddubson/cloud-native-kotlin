@@ -130,6 +130,7 @@ To get an OAuth token, call the Auth service:
 ```
 POST localhost:9191/oauth/token
 Headers:
+- Content-Type: application/x-www-form-urlencoded
 - Accept: application/json
 - Authorization: Basic [base64(html5/password)]
 Body
@@ -139,6 +140,9 @@ Body
 - scope: openid
 - client_secret: password
 - client_id: html5
+
+e.g. body:
+password=test123&username=jdoe&grant_type=password&scope=openid&client_secret=password&client_id=html5
 ```
 
 Reservation client is protected by OAuth2, so to be able to access any resources, each request will
