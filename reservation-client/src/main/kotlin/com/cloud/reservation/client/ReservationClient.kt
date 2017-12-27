@@ -23,5 +23,15 @@ class ReservationClient(val restTemplate: RestTemplate,
         return result.body.content.mapNotNull { it.reservationName }
     }
 
+    fun getReservationById(reservationId: Int): Reservation {
+        val result = this.restTemplate.exchange(
+                "$reservationServiceUrl/reservations/$reservationId",
+                GET,
+                null,
+                Reservation::class.java)
+
+        return result.body
+    }
+
     fun fallback(): List<String> = emptyList()
 }
