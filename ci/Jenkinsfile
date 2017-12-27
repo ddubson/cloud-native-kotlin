@@ -1,0 +1,9 @@
+node("") {
+    stage("publish reservation service contract stubs") {
+        git("https://github.com/ddubson/cloud-native-kotlin.git")
+        sh("./gradlew :reservation-service:build :reservation-service:publishToMavenLocal -x test")
+    }
+    stage("test") {
+        sh("./gradlew test")
+    }
+}
