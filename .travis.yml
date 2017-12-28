@@ -1,6 +1,4 @@
 language: java
 jdk: oraclejdk8
 install:
-  - ./gradlew clean
-  - ./gradlew :reservation-service:build :reservation-service:publishToMavenLocal
-  - ./gradlew test
+  - ./gradlew clean publishContractStubs test

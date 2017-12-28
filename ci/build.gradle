@@ -1,4 +1,7 @@
+apply plugin: 'groovy'
+
 repositories {
+    mavenCentral()
     maven {
         url "http://repo.jenkins-ci.org/releases/"
     }
@@ -6,7 +9,7 @@ repositories {
 
 dependencies {
     compile "org.jenkins-ci.plugins:job-dsl:1.66"
-    testCompile "junit:junit"
+    testCompile "junit:junit:4.12"
 }
 
 sourceSets {
