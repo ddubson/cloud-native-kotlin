@@ -1,0 +1,15 @@
+repositories {
+    maven {
+        url "http://repo.jenkins-ci.org/releases/"
+    }
+}
+
+dependencies {
+    compile "org.jenkins-ci.plugins:job-dsl:1.66"
+    testCompile "junit:junit"
+}
+
+sourceSets {
+    main.java.srcDir("scripts")
+    test.java.srcDir("tests")
+}
