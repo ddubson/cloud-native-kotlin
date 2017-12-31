@@ -5,14 +5,22 @@ repositories {
     maven {
         url "http://repo.jenkins-ci.org/releases/"
     }
+    maven {
+        url "http://repo.jenkins-ci.org/public/"
+    }
 }
 
 dependencies {
     compile "org.jenkins-ci.plugins:job-dsl:1.66"
+    compile "org.jenkins-ci.plugins:job-dsl:1.66@jar"
+    compile "org.jenkins-ci.plugins:credentials:2.1.14@jar"
+    compile "org.jenkins-ci.plugins:groovy:2.0@jar"
+    compile "org.jenkins-ci.main:jenkins-core:2.98"
+    runtime "javax.servlet:servlet-api:2.4"
     testCompile "junit:junit:4.12"
 }
 
 sourceSets {
-    main.java.srcDir("scripts")
+    main.groovy.srcDir("scripts")
     test.java.srcDir("tests")
 }

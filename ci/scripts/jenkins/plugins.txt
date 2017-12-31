@@ -1,3 +1,4 @@
+job-dsl:1.66
 groovy:2.0
 script-security:1.39
 command-launcher:1.2
