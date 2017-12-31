@@ -1,3 +1,6 @@
+delivery-pipeline-plugin:1.1.0
+parameterized-trigger:2.35.2
+ansicolor:0.5.2
 job-dsl:1.66
 groovy:2.0
 script-security:1.39
