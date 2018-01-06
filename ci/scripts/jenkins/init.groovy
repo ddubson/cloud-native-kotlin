@@ -26,7 +26,7 @@ SystemCredentialsProvider.getInstance().getCredentials().add(
 SystemCredentialsProvider.getInstance().save()
 
 println("Adding JDK")
-Jenkins.getInstanceOrNull().getJDKs().add(new JDK("jdk8", "/usr/lib/jvm/java8-openjdk-amd64"))
+Jenkins.getInstanceOrNull().getJDKs().add(new JDK("jdk8", "/usr/lib/jvm/java-8-openjdk-amd64"))
 
 println("Marking allow macro token processing")
 Groovy.DescriptorImpl descriptor = (Groovy.DescriptorImpl) Jenkins.getInstanceOrNull().getDescriptorOrDie(Groovy)
