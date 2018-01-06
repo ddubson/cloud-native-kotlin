@@ -1,0 +1,46 @@
+---
+resources:
+- name: cloud-native-kotlin-repo
+  type: git
+  source:
+    uri: https://github.com/ddubson/cloud-native-kotlin.git
+    branch: master
+
+jobs:
+- name: build
+  plan:
+  - get: cloud-native-kotlin-repo
+    trigger: true
+  - task: test-and-build
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: frolvlad/alpine-oraclejdk8
+          tag: slim
+      inputs:
+      - name: cloud-native-kotlin-repo
+      run:
+        dir: cloud-native-kotlin-repo
+        path: ./gradlew
+        args: ["clean", "build"]
+- name: deploy
+  plan:
+  - get: cloud-native-kotlin-repo
+    trigger: true
+    passed: ["build"]
+  - task: deploy-artifact
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: frolvlad/alpine-oraclejdk8
+          tag: slim
+      inputs:
+      - name: cloud-native-kotlin-repo
+      run:
+        dir: cloud-native-kotlin-repo
+        path: echo
+        args: ["Deploying..."]

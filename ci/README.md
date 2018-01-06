@@ -66,3 +66,19 @@ What it does is:
 - Tell Jenkins to load some initial user credentials
 - Tell Jenkins to load the default JDK
 - Tell Jenkins to allow macro processing
+
+---
+
+## Concourse
+
+### Using Docker
+
+First, generate keys for Concourse by running `setup_docker_compose.sh`
+
+Run `start.sh` to run docker-compose
+
+Once started, navigate to `localhost:8080` and click login (user: `concourse`, pass: `changeme`)
+
+Using the Fly CLI to create pipelines:
+- Login via `fly -t docker login -c http://localhost:8080`
+- Set pipeline: `fly set-pipeline -c cnk-build-plan.yml -p cnk-pipeline -t docker`

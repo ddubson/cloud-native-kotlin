@@ -4,3 +4,4 @@ out/
 target/
 .idea/
 .gradle/
+**/keys/**
