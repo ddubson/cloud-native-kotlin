@@ -13,6 +13,7 @@ buildscript {
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
     }
 }
 
@@ -33,11 +34,11 @@ configure(subprojects - project(':ci')) {
     apply plugin: "kotlin-spring"
     apply plugin: "kotlin-jpa"
     apply plugin: "org.springframework.boot"
-
     apply plugin: "maven-publish"
+    apply plugin: "io.spring.dependency-management"
 
     dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
         compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     }
 
@@ -45,6 +46,10 @@ configure(subprojects - project(':ci')) {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
             mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${springCloudContractVersion}"
+        }
+
+        dependencies {
+            dependency "org.springframework.boot:spring-boot-starter:$springBootVersion"
         }
     }
 
