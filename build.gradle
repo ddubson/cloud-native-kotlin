@@ -5,9 +5,6 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
@@ -17,7 +14,16 @@ buildscript {
 
 plugins {
     id "com.gorylenko.gradle-git-properties" version "1.4.17"
-    id 'org.springframework.boot' version '2.0.5.RELEASE'
+    id "org.springframework.boot" version "2.0.5.RELEASE"
+    id "org.jetbrains.kotlin.jvm" version "1.2.70"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.2.70"
+    id "org.jetbrains.kotlin.plugin.spring" version "1.2.70"
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.2.70"
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
 }
 
 configure(subprojects - project(':ci')) {
@@ -29,8 +35,7 @@ configure(subprojects - project(':ci')) {
     group = "com.cloud"
     version = "1.0.0"
 
-    apply plugin: "kotlin-spring"
-    apply plugin: "kotlin-jpa"
+    apply plugin: "kotlin"
     apply plugin: "maven-publish"
     apply plugin: "io.spring.dependency-management"
 
@@ -38,7 +43,7 @@ configure(subprojects - project(':ci')) {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
         compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-        compile "javax.xml.bind:jaxb-api:2.3.0"
+        runtime "javax.xml.bind:jaxb-api:2.3.0"
     }
 
     dependencyManagement {
@@ -49,6 +54,9 @@ configure(subprojects - project(':ci')) {
 
         dependencies {
             dependency "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+            dependency "org.springframework.boot:spring-boot-starter-data-rest:$springBootVersion"
+            dependency "org.springframework.boot:spring-boot-starter-integration:$springBootVersion"
+            dependency "org.springframework.restdocs:spring-restdocs-mockmvc:2.0.2.RELEASE"
             dependency "com.h2database:h2:$h2Version"
         }
     }
