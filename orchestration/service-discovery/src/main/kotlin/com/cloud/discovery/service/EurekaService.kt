@@ -1,4 +1,4 @@
-package com.cloud.native.eureka
+package com.cloud.discovery.service
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

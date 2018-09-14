@@ -17,9 +17,9 @@ Reservation Application Microservice ecosystem
 # Port: 8888
 ./gradlew :cloud-config:bootRun
 
-# (2) Start Eureka Server
+# (2) Start Service Discovery (Eureka Server)
 # Port: 8761
-./gradlew :eureka-service:bootRun
+./gradlew :orchestration:service-discovery:bootRun
 
 # (3) Start Auth Service (OAuth2)
 # Port: 9191
