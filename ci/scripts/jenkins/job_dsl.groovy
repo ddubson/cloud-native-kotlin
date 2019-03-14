@@ -1,3 +1,5 @@
+package jenkins
+
 import javaposse.jobdsl.dsl.DslFactory
 
 DslFactory factory = this

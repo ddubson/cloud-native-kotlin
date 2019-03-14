@@ -5,22 +5,29 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:$springCloudContractVersion"
         classpath "io.rest-assured:rest-assured:$restAssuredVersion"
         classpath "io.rest-assured:spring-mock-mvc:$restAssuredVersion"
-        classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
     }
 }
 
 plugins {
+    id "org.springframework.boot" version "1.5.9.RELEASE"
+    id "org.jetbrains.kotlin.jvm" version "1.3.21"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.3.21"
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.3.21"
     id "com.gorylenko.gradle-git-properties" version "1.4.17"
+    id "org.asciidoctor.convert" version "1.5.3"
 }
 
 configure(subprojects - project(':ci')) {
+    apply plugin: "java"
+    apply plugin: "kotlin"
+    apply plugin: "kotlin-spring"
+    apply plugin: "kotlin-jpa"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "maven-publish"
+
     repositories {
         mavenCentral()
         mavenLocal()
@@ -29,16 +36,9 @@ configure(subprojects - project(':ci')) {
     group = "com.cloud"
     version = "1.0.0"
 
-    apply plugin: "kotlin"
-    apply plugin: "kotlin-spring"
-    apply plugin: "kotlin-jpa"
-    apply plugin: "org.springframework.boot"
-
-    apply plugin: "maven-publish"
-
     dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-        compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        implementation "org.jetbrains.kotlin:kotlin-reflect"
     }
 
     dependencyManagement {
