@@ -10,12 +10,12 @@ contracts {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-data-rest:$springBootVersion"
-    compile "org.springframework.boot:spring-boot-starter-integration:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-data-rest"
+    compile "org.springframework.boot:spring-boot-starter-integration"
     compile "org.springframework.data:spring-data-rest-webmvc:2.6.6.RELEASE"
-    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.cloud:spring-cloud-starter-config"
     compile "org.springframework.cloud:spring-cloud-starter-eureka"
     compile "org.springframework.cloud:spring-cloud-starter-stream-rabbit"
